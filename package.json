@@ -1,0 +1,14 @@
+{
+  "name": "verdetech-pitch",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host :: --port 8080",
+    "build": "vite build",
+    "preview": "vite preview --host :: --port 8080"
+  },
+  "devDependencies": {
+    "vite": "^5.4.10"
+  }
+}
