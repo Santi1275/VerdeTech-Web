@@ -241,18 +241,25 @@
   .placeholder .ph-desc{font-size:.92rem;margin-top:6px;color:var(--muted-2);max-width:240px}
   .placeholder.small{aspect-ratio:1/1;min-height:140px}
 
-  /* Negocio */
-  .biz-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
-  .price-card{
+  /* Estado del proyecto (roadmap de desarrollo) */
+  .status-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+  .status-card{
     border-radius:16px;padding:24px;border:1px solid var(--line);
-    background:rgba(19,36,28,.55);transition:.2s;
+    background:rgba(19,36,28,.55);transition:.2s;position:relative;overflow:hidden;
   }
-  .price-card.featured{border-color:var(--green);box-shadow:0 0 0 1px var(--green),var(--shadow);background:linear-gradient(180deg,rgba(16,185,129,.12),rgba(19,36,28,.6))}
-  .price-card .plan{font-weight:700;font-family:'Sora';color:var(--leaf)}
-  .price-card .price{font-family:'Sora';font-size:1.9rem;font-weight:800;margin:10px 0}
-  .price-card .price small{font-size:.9rem;color:var(--muted-2);font-weight:500}
-  .price-card ul{list-style:none;margin:14px 0 0;display:flex;flex-direction:column;gap:8px;font-size:.94rem;color:var(--muted)}
-  .price-card li::before{content:"✓ ";color:var(--green);font-weight:800}
+  .status-card:hover{border-color:var(--line-strong);transform:translateY(-3px)}
+  .status-card .phase{font-weight:700;font-family:'Sora';color:var(--leaf);display:flex;align-items:center;gap:10px}
+  .status-card .pct{font-family:'Sora';font-size:1.5rem;font-weight:800;margin:10px 0;color:var(--cyan)}
+  .status-card ul{list-style:none;margin:14px 0 0;display:flex;flex-direction:column;gap:8px;font-size:.94rem;color:var(--muted)}
+  .status-card li::before{content:"✓ ";color:var(--green);font-weight:800}
+  .status-card .tag{
+    position:absolute;top:14px;right:14px;font-size:.72rem;font-weight:700;
+    padding:4px 9px;border-radius:999px;font-family:'Sora';letter-spacing:.06em;
+  }
+  .tag.done{background:rgba(52,211,153,.14);color:var(--green);border:1px solid var(--line-strong)}
+  .tag.wip{background:rgba(251,191,36,.12);color:var(--amber);border:1px solid rgba(251,191,36,.35)}
+  .tag.next{background:rgba(94,234,212,.12);color:var(--cyan);border:1px solid var(--line-strong)}
+
 
   /* Equipo */
   .team-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
@@ -311,7 +318,7 @@
   @media (max-width:900px){
     .hero-grid,.duo,.value-band,.proto-grid,.team-grid{grid-template-columns:1fr}
     .flow{grid-template-columns:1fr 1fr}
-    .biz-grid{grid-template-columns:1fr}
+    .status-grid{grid-template-columns:1fr}
     .duo .arrow{display:none}
   }
   @media (max-width:680px){
@@ -346,9 +353,10 @@
       <a href="#valor">Valor</a>
       <a href="#funciona">Funciona</a>
       <a href="#prototipo">Prototipo</a>
-      <a href="#negocio">Negocio</a>
+      <a href="#estado">Estado</a>
       <a href="#equipo">Equipo</a>
-      <a class="nav-cta" href="#cta">Sumate</a>
+      <a href="#futuro">Futuro</a>
+      <a class="nav-cta" href="#cta">Seguilo</a>
     </nav>
     <button class="burger" id="burger" aria-label="Abrir menú">☰</button>
   </div>
@@ -362,7 +370,7 @@
       <h1>Tu planta se <span class="grad">cuida sola</span>, vos poné la vista.</h1>
       <p class="lead"><strong>VerdeTech</strong> es un terrario de madera inteligente que cuida tus plantas por vos usando sensores y actuadores: riega y regula la temperatura solo cuando hace falta, para que no pierdas una planta por falta de tiempo.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#cta">Quiero que mi planta sobreviva →</a>
+        <a class="btn btn-primary" href="#prototipo">Conocé el prototipo →</a>
         <a class="btn btn-ghost" href="#funciona">¿Cómo funciona?</a>
       </div>
       <div class="hero-stats">
@@ -494,46 +502,50 @@
   </div>
 </section>
 
-<!-- ===== NEGOCIO ===== -->
-<section id="negocio">
+<!-- ===== ESTADO DEL PROYECTO ===== -->
+<section id="estado">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="eyebrow">Modelo de negocio</div>
-      <h2>Vendemos el terrario, no la promesa.</h2>
-      <p>Modelo de producto físico con recambio de consumibles. Ingresos por venta del equipo y repuestos (sensores, bomba de riego, plantas).</p>
+      <div class="eyebrow">Estado del desarrollo</div>
+      <h2>Un prototipo vivo, no un concepto.</h2>
+      <p>Esto es lo que ya funciona, lo que estamos puliendo y lo que viene. Estamos en fase de prototipo funcional para mostrar en la EXPO ITES 2026.</p>
     </div>
-    <div class="biz-grid">
-      <div class="price-card reveal">
-        <div class="plan">Hogar</div>
-        <div class="price">$45.000<small> · terrario completo</small></div>
+    <div class="status-grid">
+      <div class="status-card reveal">
+        <span class="tag done">HECHO</span>
+        <div class="phase">✅ Funciona hoy</div>
+        <div class="pct">100%</div>
         <ul>
-          <li>Caja de madera + electrónica</li>
-          <li>1 planta incluida</li>
-          <li>Funciona autónomo</li>
+          <li>Caja de madera + electrónica montada</li>
+          <li>Sensores de temperatura y humedad</li>
+          <li>Actuadores: coolers y riego automático</li>
+          <li>Lógica de control autónoma</li>
         </ul>
       </div>
-      <div class="price-card featured reveal">
-        <div class="plan">Pro — más vendido</div>
-        <div class="price">$68.000<small> · con pantalla</small></div>
+      <div class="status-card reveal">
+        <span class="tag wip">EN CURSO</span>
+        <div class="phase">🔧 En mejora</div>
+        <div class="pct">~70%</div>
         <ul>
-          <li>Todo lo de Hogar</li>
-          <li>Pantalla de estado</li>
-          <li>Kit de repuestos por 1 año</li>
-          <li>Garantía 12 meses</li>
+          <li>Pantalla temporal de prueba</li>
+          <li>Ajuste de umbrales de riego y enfriamiento</li>
+          <li>Pulido estético del terrario</li>
         </ul>
       </div>
-      <div class="price-card reveal">
-        <div class="plan">Repuestos</div>
-        <div class="price">Desde $4.000<small> · consumibles</small></div>
+      <div class="status-card reveal">
+        <span class="tag next">PRÓXIMO</span>
+        <div class="phase">🚀 En roadmap</div>
+        <div class="pct">0%</div>
         <ul>
-          <li>Sensor de humedad</li>
-          <li>Bomba de rigo</li>
-          <li>Coolers / ventiladores</li>
+          <li>Pantalla definitiva más grande</li>
+          <li>Microcontrolador con más RAM</li>
+          <li>Historial de datos y más sensores</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
+
 
 <!-- ===== EQUIPO ===== -->
 <section id="equipo">
@@ -588,12 +600,12 @@
 <section id="cta">
   <div class="wrap">
     <div class="cta-band reveal">
-      <div class="eyebrow">Sumate a VerdeTech</div>
-      <h2>¿Tu planta sobreviviría una semana sin vos? <span class="cta-creative">Con VerdeTech, sí.</span></h2>
-      <p>Dale a tus plantas el cuidado automático que merecen. Conocé el prototipo en la EXPO ITES 2026 y llevate la idea de que la naturaleza y la tecnología pueden convivir.</p>
+      <div class="eyebrow">Seguí el proyecto</div>
+      <h2>Un prototipo que crece planta a planta. <span class="cta-creative">Seguí cómo evoluciona.</span></h2>
+      <p>VerdeTech todavía está en desarrollo. Conocé el prototipo en la EXPO ITES 2026, hablá con el equipo y enterate de cada mejora que llega. La naturaleza y la tecnología pueden convivir — acá vas a ver cómo.</p>
       <div class="hero-actions" style="justify-content:center">
         <a class="btn btn-primary" href="#prototipo">Ver el prototipo</a>
-        <a class="btn btn-ghost" href="#equipo">Hablar con el equipo</a>
+        <a class="btn btn-ghost" href="#estado">Cómo va el desarrollo</a>
       </div>
     </div>
   </div>
@@ -607,7 +619,7 @@
       <div>Proyecto de Matteo Gauthier & Santiago Caloia</div>
     </div>
     <div class="foot-todo">
-      <strong>⚠️ Datos que faltan completar:</strong> logo definitivo (reemplazar la "V" temporal), fotos reales del prototipo, foto de cada integrante, precios finales confirmados, contacto/email y redes sociales del proyecto, fecha/hora exacta de presentación en la expo.
+      <strong>⚠️ Datos que faltan completar:</strong> logo definitivo (reemplazar la "V" temporal), fotos reales del prototipo, foto de cada integrante, contacto/email y redes sociales del proyecto, fecha/hora exacta de presentación en la expo.
     </div>
   </div>
 </footer>
