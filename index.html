@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VerdeTech · Elevator Pitch — EXPO ITES 2026</title>
+<meta name="description" content="VerdeTech: un terrario inteligente que cuida tus plantas por vos. Sensores y actuadores que riegan y regulan la temperatura automáticamente. EXPO ITES 2026." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  /* ===== Tokens de diseño (verde natural + tecnológico) ===== */
+  :root{
+    --bg:#0a1410;
+    --bg-soft:#0f1c16;
+    --surface:#13241c;
+    --surface-2:#18302411;
+    --line:rgba(120,200,160,.16);
+    --line-strong:rgba(120,200,160,.32);
+    --text:#eaf6ee;
+    --muted:#9fc0ac;
+    --muted-2:#6f8e7c;
+    --green:#34d399;
+    --green-2:#10b981;
+    --green-deep:#065f46;
+    --leaf:#86efac;
+    --cyan:#5eead4;
+    --amber:#fbbf24;
+    --radius:18px;
+    --shadow:0 18px 50px -20px rgba(0,0,0,.6);
+    --maxw:1120px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4,.display{font-family:'Sora',sans-serif;line-height:1.1;letter-spacing:-.02em}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+  /* ===== Fondo decorativo ===== */
+  .bg-deco{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none}
+  .bg-deco::before{
+    content:"";position:absolute;inset:-20%;
+    background:
+      radial-gradient(60% 50% at 15% 8%, rgba(16,185,129,.20), transparent 60%),
+      radial-gradient(50% 40% at 92% 0%, rgba(94,234,212,.12), transparent 60%),
+      radial-gradient(60% 60% at 80% 100%, rgba(6,95,70,.30), transparent 60%);
+  }
+  .bg-deco::after{
+    content:"";position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(120,200,160,.04) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(120,200,160,.04) 1px,transparent 1px);
+    background-size:46px 46px;
+    mask-image:radial-gradient(circle at 50% 30%, #000 0%, transparent 75%);
+  }
+
+  /* ===== Nav ===== */
+  header.nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    backdrop-filter:blur(14px);
+    background:rgba(10,20,16,.62);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-family:'Sora';font-size:1.05rem}
+  .brand .mark{
+    width:34px;height:34px;border-radius:10px;
+    background:linear-gradient(135deg,var(--green),var(--green-deep));
+    display:grid;place-items:center;color:#04130c;font-weight:800;
+    box-shadow:0 0 0 1px rgba(255,255,255,.06),0 8px 20px -6px rgba(16,185,129,.6)
+  }
+  .nav-links{display:flex;gap:6px;align-items:center}
+  .nav-links a{
+    padding:8px 12px;border-radius:10px;color:var(--muted);
+    font-size:.92rem;font-weight:500;transition:.2s;
+  }
+  .nav-links a:hover{color:var(--text);background:rgba(255,255,255,.04)}
+  .nav-cta{
+    padding:9px 16px;border-radius:11px;font-weight:600;font-size:.92rem;
+    background:var(--green);color:#04130c;transition:.2s;
+  }
+  .nav-cta:hover{filter:brightness(1.08);transform:translateY(-1px)}
+  .burger{display:none;background:none;border:1px solid var(--line);color:var(--text);width:42px;height:42px;border-radius:11px;cursor:pointer;font-size:1.2rem}
+
+  /* ===== Hero ===== */
+  .hero{padding:120px 0 70px;position:relative}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+  .pill{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:6px 12px;border-radius:999px;font-size:.8rem;font-weight:600;
+    background:rgba(52,211,153,.12);color:var(--leaf);
+    border:1px solid var(--line-strong);
+  }
+  .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);animation:pulse 2.4s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .hero h1{
+    font-size:clamp(2.4rem,5.2vw,4rem);font-weight:800;margin:18px 0 16px;
+  }
+  .hero h1 .grad{
+    background:linear-gradient(120deg,var(--leaf),var(--cyan) 60%,var(--green));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero .lead{font-size:1.18rem;color:var(--muted);max-width:560px;margin-bottom:26px}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:13px 22px;border-radius:13px;font-weight:600;font-size:1rem;cursor:pointer;
+    transition:.2s;border:1px solid transparent;font-family:'Sora';
+  }
+  .btn-primary{background:var(--green);color:#04130c}
+  .btn-primary:hover{filter:brightness(1.08);transform:translateY(-2px);box-shadow:0 12px 28px -10px rgba(16,185,129,.7)}
+  .btn-ghost{background:transparent;border-color:var(--line-strong);color:var(--text)}
+  .btn-ghost:hover{background:rgba(255,255,255,.05);border-color:var(--green)}
+  .hero-stats{display:flex;gap:28px;margin-top:38px;flex-wrap:wrap}
+  .stat .num{font-family:'Sora';font-size:1.7rem;font-weight:700;color:var(--leaf)}
+  .stat .lbl{font-size:.82rem;color:var(--muted-2);text-transform:uppercase;letter-spacing:.08em}
+
+  /* Terrario visual */
+  .terrarium{
+    position:relative;aspect-ratio:1/1;max-width:440px;margin:0 auto;
+    border-radius:24px;overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 50% 0%, rgba(52,211,153,.18), transparent 60%),
+      linear-gradient(180deg,#102018,#0a1410);
+    border:1px solid var(--line-strong);
+    box-shadow:var(--shadow);
+  }
+  .terrarium .glass{
+    position:absolute;inset:14px;border-radius:18px;
+    border:1px solid rgba(134,239,172,.22);
+    background:linear-gradient(180deg,rgba(16,185,129,.06),rgba(94,234,212,.03));
+    overflow:hidden;
+  }
+  .terrarium .plant{
+    position:absolute;left:50%;bottom:14%;transform:translateX(-50%);
+    width:46%;height:54%;
+    background:
+      radial-gradient(60% 80% at 50% 100%, var(--green-deep), transparent 70%),
+      radial-gradient(80% 60% at 50% 40%, var(--green), transparent 70%);
+    border-radius:50% 50% 46% 46% / 60% 60% 40% 40%;
+    filter:drop-shadow(0 0 18px rgba(52,211,153,.45));
+    animation:sway 5s ease-in-out infinite;
+  }
+  @keyframes sway{0%,100%{transform:translateX(-50%) rotate(-2deg)}50%{transform:translateX(-50%) rotate(2deg)}}
+  .terrarium .soil{position:absolute;left:8%;right:8%;bottom:12%;height:6%;background:linear-gradient(#3a2a1c,#251a10);border-radius:6px}
+  .terrarium .chip{
+    position:absolute;font-size:.72rem;font-weight:600;padding:5px 9px;border-radius:8px;
+    background:rgba(10,20,16,.7);border:1px solid var(--line-strong);color:var(--leaf);
+    backdrop-filter:blur(4px);font-family:'Sora';
+  }
+  .chip.temp{top:12%;left:10%}
+  .chip.hum{top:12%;right:10%}
+  .chip.fan{bottom:24%;right:8%}
+  .chip .v{color:var(--cyan)}
+
+  /* ===== Secciones ===== */
+  section{padding:70px 0;position:relative}
+  .section-head{margin-bottom:42px;max-width:760px}
+  .eyebrow{color:var(--green);font-weight:600;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;font-family:'Sora'}
+  .section-head h2{font-size:clamp(1.8rem,3.6vw,2.6rem);font-weight:700;margin:10px 0 12px}
+  .section-head p{color:var(--muted);font-size:1.05rem}
+
+  .card{
+    background:linear-gradient(180deg,rgba(19,36,28,.7),rgba(15,28,22,.5));
+    border:1px solid var(--line);border-radius:var(--radius);padding:26px;
+    transition:.25s;position:relative;overflow:hidden;
+  }
+  .card:hover{border-color:var(--line-strong);transform:translateY(-3px);box-shadow:var(--shadow)}
+  .card .ico{
+    width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:1.4rem;
+    background:rgba(52,211,153,.12);border:1px solid var(--line-strong);margin-bottom:16px;
+  }
+  .card h3{font-size:1.18rem;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:.98rem}
+
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+
+  /* Problema / Solución dual */
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+  .duo .card{display:flex;flex-direction:column}
+  .duo .bad .ico{background:rgba(251,191,36,.12);border-color:rgba(251,191,36,.35)}
+  .duo .bad h3{color:var(--amber)}
+  .duo .good .ico{background:rgba(52,211,153,.14)}
+  .duo .arrow{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-size:1.3rem;
+    background:var(--bg);border:1px solid var(--line-strong);color:var(--green);z-index:2;
+  }
+
+  /* Valor */
+  .value-band{
+    border-radius:24px;padding:42px;
+    background:
+      radial-gradient(120% 120% at 0% 0%, rgba(16,185,129,.18), transparent 55%),
+      linear-gradient(180deg,rgba(19,36,28,.8),rgba(10,20,16,.6));
+    border:1px solid var(--line-strong);
+    display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center;
+  }
+  .value-band .big{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;font-family:'Sora'}
+  .value-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+  .value-list li{display:flex;gap:12px;align-items:flex-start;color:var(--text)}
+  .value-list .ck{color:var(--green);font-weight:800;flex-shrink:0}
+
+  /* Funcionamiento */
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .flow-step{
+    background:rgba(19,36,28,.55);border:1px solid var(--line);border-radius:16px;padding:22px;
+    position:relative;
+  }
+  .flow-step .step-n{font-family:'Sora';font-size:.78rem;color:var(--green);font-weight:700;letter-spacing:.1em}
+  .flow-step h4{font-size:1.05rem;margin:8px 0 8px}
+  .flow-step p{font-size:.92rem;color:var(--muted)}
+  .flow-step .if{color:var(--cyan);font-weight:600}
+
+  /* Prototipo */
+  .proto-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:24px}
+  .placeholder{
+    aspect-ratio:16/10;border-radius:16px;
+    border:2px dashed var(--line-strong);
+    background:
+      repeating-linear-gradient(45deg,rgba(52,211,153,.04) 0 12px,transparent 12px 24px),
+      rgba(10,20,16,.5);
+    display:grid;place-items:center;text-align:center;color:var(--muted);
+    position:relative;min-height:180px;
+  }
+  .placeholder .ph-tag{
+    font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--green);
+    font-weight:700;font-family:'Sora';
+  }
+  .placeholder .ph-desc{font-size:.92rem;margin-top:6px;color:var(--muted-2);max-width:240px}
+  .placeholder.small{aspect-ratio:1/1;min-height:140px}
+
+  /* Negocio */
+  .biz-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+  .price-card{
+    border-radius:16px;padding:24px;border:1px solid var(--line);
+    background:rgba(19,36,28,.55);transition:.2s;
+  }
+  .price-card.featured{border-color:var(--green);box-shadow:0 0 0 1px var(--green),var(--shadow);background:linear-gradient(180deg,rgba(16,185,129,.12),rgba(19,36,28,.6))}
+  .price-card .plan{font-weight:700;font-family:'Sora';color:var(--leaf)}
+  .price-card .price{font-family:'Sora';font-size:1.9rem;font-weight:800;margin:10px 0}
+  .price-card .price small{font-size:.9rem;color:var(--muted-2);font-weight:500}
+  .price-card ul{list-style:none;margin:14px 0 0;display:flex;flex-direction:column;gap:8px;font-size:.94rem;color:var(--muted)}
+  .price-card li::before{content:"✓ ";color:var(--green);font-weight:800}
+
+  /* Equipo */
+  .team-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .member{
+    display:flex;gap:18px;align-items:center;
+    background:rgba(19,36,28,.55);border:1px solid var(--line);border-radius:16px;padding:22px;
+  }
+  .avatar{
+    width:64px;height:64px;border-radius:50%;flex-shrink:0;
+    background:linear-gradient(135deg,var(--green-deep),var(--green));
+    display:grid;place-items:center;font-family:'Sora';font-weight:800;font-size:1.4rem;color:#04130c;
+    border:1px solid var(--line-strong);
+  }
+  .member h4{font-size:1.1rem}
+  .member p{color:var(--muted);font-size:.92rem}
+
+  /* Futuro */
+  .future-list{display:flex;flex-direction:column;gap:14px}
+  .future-item{
+    display:flex;gap:16px;align-items:flex-start;
+    background:rgba(19,36,28,.5);border:1px solid var(--line);border-radius:14px;padding:20px;
+  }
+  .future-item .badge{
+    flex-shrink:0;font-family:'Sora';font-weight:700;font-size:.8rem;
+    padding:6px 10px;border-radius:8px;background:rgba(94,234,212,.14);color:var(--cyan);
+    border:1px solid var(--line-strong);
+  }
+
+  /* CTA */
+  .cta-band{
+    border-radius:26px;padding:52px;text-align:center;
+    background:
+      radial-gradient(80% 120% at 50% 0%, rgba(16,185,129,.22), transparent 60%),
+      linear-gradient(180deg,rgba(19,36,28,.9),rgba(10,20,16,.7));
+    border:1px solid var(--line-strong);
+  }
+  .cta-band h2{font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:14px}
+  .cta-band p{color:var(--muted);max-width:560px;margin:0 auto 26px;font-size:1.1rem}
+  .cta-creative{font-family:'Sora';color:var(--leaf);font-weight:600}
+
+  /* Footer */
+  footer{padding:40px 0;border-top:1px solid var(--line);margin-top:60px}
+  .foot-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--muted-2);font-size:.9rem}
+  .foot-todo{
+    margin-top:24px;padding:18px;border-radius:14px;
+    background:rgba(251,191,36,.06);border:1px dashed rgba(251,191,36,.35);
+    color:var(--muted);font-size:.9rem;
+  }
+  .foot-todo strong{color:var(--amber)}
+
+  /* Reveal animation */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* Responsive */
+  @media (max-width:900px){
+    .hero-grid,.duo,.value-band,.proto-grid,.team-grid{grid-template-columns:1fr}
+    .flow{grid-template-columns:1fr 1fr}
+    .biz-grid{grid-template-columns:1fr}
+    .duo .arrow{display:none}
+  }
+  @media (max-width:680px){
+    .nav-links{display:none}
+    .burger{display:grid;place-items:center}
+    .nav-links.open{
+      display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;
+      background:rgba(10,20,16,.97);border-bottom:1px solid var(--line);padding:14px 20px;gap:4px;
+    }
+    .nav-links.open a{width:100%}
+    .grid-3{grid-template-columns:1fr}
+    .flow{grid-template-columns:1fr}
+    .hero{padding:110px 0 40px}
+    .value-band,.cta-band{padding:28px}
+    section{padding:50px 0}
+  }
+</style>
+</head>
+<body>
+<div class="bg-deco"></div>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#inicio">
+      <span class="mark">V</span>
+      <span>VerdeTech</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#problema">Problema</a>
+      <a href="#solucion">Solución</a>
+      <a href="#valor">Valor</a>
+      <a href="#funciona">Funciona</a>
+      <a href="#prototipo">Prototipo</a>
+      <a href="#negocio">Negocio</a>
+      <a href="#equipo">Equipo</a>
+      <a class="nav-cta" href="#cta">Sumate</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Abrir menú">☰</button>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <span class="pill"><span class="dot"></span> EXPO ITES 2026 · Proyecto</span>
+      <h1>Tu planta se <span class="grad">cuida sola</span>, vos poné la vista.</h1>
+      <p class="lead"><strong>VerdeTech</strong> es un terrario de madera inteligente que cuida tus plantas por vos usando sensores y actuadores: riega y regula la temperatura solo cuando hace falta, para que no pierdas una planta por falta de tiempo.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#cta">Quiero que mi planta sobreviva →</a>
+        <a class="btn btn-ghost" href="#funciona">¿Cómo funciona?</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="num">2</div><div class="lbl">Sensores</div></div>
+        <div class="stat"><div class="num">2</div><div class="lbl">Actuadores</div></div>
+        <div class="stat"><div class="num">< 5 min</div><div class="lbl">Para entenderlo</div></div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="terrarium" aria-label="Terrario inteligente VerdeTech">
+        <div class="glass">
+          <div class="soil"></div>
+          <div class="plant"></div>
+        </div>
+        <span class="chip temp">🌡️ <span class="v" id="liveTemp">24°C</span></span>
+        <span class="chip hum">💧 <span class="v" id="liveHum">58%</span></span>
+        <span class="chip fan">🌀 Cooler: <span class="v" id="liveFan">OFF</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROBLEMA / SOLUCIÓN ===== -->
+<section id="problema">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">El problema</div>
+      <h2>Queremos plantas, pero no tenemos tiempo.</h2>
+      <p>La vida escolar y laboral nos come el tiempo. Las plantas terminan siendo lo último de la lista… y cuando nos acordamos, ya es tarde.</p>
+    </div>
+    <div class="duo">
+      <div class="card bad reveal">
+        <div class="ico">😫</div>
+        <h3>El problema</h3>
+        <p>Falta de tiempo para cuidar plantas. Regamos tarde, nos olvidamos de la temperatura, y la planta se seca o se pudre antes de que reaccionemos.</p>
+      </div>
+      <div class="card good reveal" id="solucion">
+        <div class="ico">🌿</div>
+        <h3>La solución</h3>
+        <p>Una planta que se cuida sola. VerdeTech monitorea el entorno y actúa por vos: riega y regula el clima automáticamente, sin que tengas que acordarte de nada.</p>
+      </div>
+      <div class="arrow">→</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROPUESTA DE VALOR ===== -->
+<section id="valor">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Propuesta de valor</div>
+      <h2>No perder una planta por falta de prioridad.</h2>
+    </div>
+    <div class="value-band reveal">
+      <div>
+        <div class="big">No es un gadget de plantas. Es que <span style="color:var(--leaf)">no tengas que elegir</span> entre tu rutina y tus plantas.</div>
+        <p style="color:var(--muted);margin-top:14px">VerdeTech convierte el cuidado en algo automático y silencioso. Vos viví; la planta se mantiene viva.</p>
+      </div>
+      <ul class="value-list">
+        <li><span class="ck">✓</span> Cuidado 24/7 sin que te ocupes</li>
+        <li><span class="ck">✓</span> Ideal para todas las edades</li>
+        <li><span class="ck">✓</span> Estética de madera + tecnología</li>
+        <li><span class="ck">✓</span> Funciona solo, sin app obligatoria</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FUNCIONAMIENTO ===== -->
+<section id="funciona">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">¿Cómo funciona?</div>
+      <h2>Mide, decide y actúa. Solo cuando hace falta.</h2>
+      <p>Dos sensores leen el entorno y dos actuadores hacen el trabajo. El sistema no actúa por actuar: solo interviene cuando los datos lo piden.</p>
+    </div>
+    <div class="flow">
+      <div class="flow-step reveal">
+        <div class="step-n">01 · SENSOR</div>
+        <h4>🌡️ Temperatura</h4>
+        <p>Mide la temperatura dentro del terrario. <span class="if">Si hace calor →</span> enciende los coolers.</p>
+      </div>
+      <div class="flow-step reveal">
+        <div class="step-n">02 · ACTUADOR</div>
+        <h4>🌀 Coolers</h4>
+        <p>Si hace calor, enfrían el ambiente. <span class="if">Si hace frío →</span> los apaga para conservar calor.</p>
+      </div>
+      <div class="flow-step reveal">
+        <div class="step-n">03 · SENSOR</div>
+        <h4>💧 Humedad</h4>
+        <p>Mide la humedad de la tierra. <span class="if">Si es baja →</span> riega. <span class="if">Si es suficiente →</span> no actúa.</p>
+      </div>
+      <div class="flow-step reveal">
+        <div class="step-n">04 · ACTUADOR</div>
+        <h4>🚿 Riego</h4>
+        <p>Activa el riego solo cuando la humedad baja del umbral. Nada de regar de más.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROTOTIPO ===== -->
+<section id="prototipo">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Prototipo</div>
+      <h2>Así se ve (y así se va a ver).</h2>
+      <p>Mostramos el prototipo funcional actual. Las imágenes son placeholders: el equipo puede reemplazarlas después subiendo sus propias fotos.</p>
+    </div>
+    <div class="proto-grid">
+      <div class="placeholder reveal">
+        <div>
+          <div class="ph-tag">📷 IMAGEN DEL PROTOTIPO</div>
+          <div class="ph-desc">Subir foto del terrario real con caja de madera, sensores y coolers instalados.</div>
+        </div>
+      </div>
+      <div class="placeholder small reveal">
+        <div>
+          <div class="ph-tag">🧠 MICROCONTROLADOR</div>
+          <div class="ph-desc">Foto del microcontrolador actual y su cableado.</div>
+        </div>
+      </div>
+    </div>
+    <div class="grid-3" style="margin-top:24px">
+      <div class="placeholder small reveal"><div><div class="ph-tag">📱 PANTALLA</div><div class="ph-desc">Foto de la pantalla temporal actual.</div></div></div>
+      <div class="placeholder small reveal"><div><div class="ph-tag">🌿 PLANTA</div><div class="ph-desc">Foto de la planta creciendo dentro.</div></div></div>
+      <div class="placeholder small reveal"><div><div class="ph-tag">🔧 INTERIOR</div><div class="ph-desc">Foto del interior con actuadores.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEGOCIO ===== -->
+<section id="negocio">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Modelo de negocio</div>
+      <h2>Vendemos el terrario, no la promesa.</h2>
+      <p>Modelo de producto físico con recambio de consumibles. Ingresos por venta del equipo y repuestos (sensores, bomba de riego, plantas).</p>
+    </div>
+    <div class="biz-grid">
+      <div class="price-card reveal">
+        <div class="plan">Hogar</div>
+        <div class="price">$45.000<small> · terrario completo</small></div>
+        <ul>
+          <li>Caja de madera + electrónica</li>
+          <li>1 planta incluida</li>
+          <li>Funciona autónomo</li>
+        </ul>
+      </div>
+      <div class="price-card featured reveal">
+        <div class="plan">Pro — más vendido</div>
+        <div class="price">$68.000<small> · con pantalla</small></div>
+        <ul>
+          <li>Todo lo de Hogar</li>
+          <li>Pantalla de estado</li>
+          <li>Kit de repuestos por 1 año</li>
+          <li>Garantía 12 meses</li>
+        </ul>
+      </div>
+      <div class="price-card reveal">
+        <div class="plan">Repuestos</div>
+        <div class="price">Desde $4.000<small> · consumibles</small></div>
+        <ul>
+          <li>Sensor de humedad</li>
+          <li>Bomba de rigo</li>
+          <li>Coolers / ventiladores</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EQUIPO ===== -->
+<section id="equipo">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">El equipo</div>
+      <h2>Quienes están detrás de VerdeTech.</h2>
+    </div>
+    <div class="team-grid">
+      <div class="member reveal">
+        <div class="avatar">MG</div>
+        <div>
+          <h4>Matteo Gauthier</h4>
+          <p>Desarrollo y electrónica — sensores, actuadores y firmware del prototipo.</p>
+        </div>
+      </div>
+      <div class="member reveal">
+        <div class="avatar">SC</div>
+        <div>
+          <h4>Santiago Caloia</h4>
+          <p>Diseño del terrario y hardware — caja de madera, montaje y pruebas.</p>
+        </div>
+      </div>
+    </div>
+    <div class="foot-todo reveal">
+      <strong>⚠️ Para completar por el equipo:</strong> roles específicos, foto real de cada integrante, contacto/email de cada uno y redes del proyecto.
+    </div>
+  </div>
+</section>
+
+<!-- ===== FUTURO ===== -->
+<section id="futuro">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Hacia dónde va</div>
+      <h2>El prototipo es el principio.</h2>
+    </div>
+    <div class="future-list">
+      <div class="future-item reveal">
+        <span class="badge">PANTALLA</span>
+        <div><strong>Cambiar la pantalla temporal pequeña por la planeada.</strong> Hoy usamos una pantalla de prueba reducida; el próximo paso es integrar la pantalla definitiva con mejor visibilidad y datos en tiempo real.</div>
+      </div>
+      <div class="future-item reveal">
+        <span class="badge">MCU</span>
+        <div><strong>Microcontrolador más potente.</strong> El actual tiene RAM limitada, que restringe cuántos datos y funciones puede manejar a la vez. Migrar a uno con más memoria habilita historial, más sensores y lógica más avanzada.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section id="cta">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <div class="eyebrow">Sumate a VerdeTech</div>
+      <h2>¿Tu planta sobreviviría una semana sin vos? <span class="cta-creative">Con VerdeTech, sí.</span></h2>
+      <p>Dale a tus plantas el cuidado automático que merecen. Conocé el prototipo en la EXPO ITES 2026 y llevate la idea de que la naturaleza y la tecnología pueden convivir.</p>
+      <div class="hero-actions" style="justify-content:center">
+        <a class="btn btn-primary" href="#prototipo">Ver el prototipo</a>
+        <a class="btn btn-ghost" href="#equipo">Hablar con el equipo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <div class="brand"><span class="mark" style="width:28px;height:28px;border-radius:8px;font-size:.8rem">V</span> VerdeTech · EXPO ITES 2026</div>
+      <div>Proyecto de Matteo Gauthier & Santiago Caloia</div>
+    </div>
+    <div class="foot-todo">
+      <strong>⚠️ Datos que faltan completar:</strong> logo definitivo (reemplazar la "V" temporal), fotos reales del prototipo, foto de cada integrante, precios finales confirmados, contacto/email y redes sociales del proyecto, fecha/hora exacta de presentación en la expo.
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ===== Menú mobile ===== */
+  const burger = document.getElementById('burger');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  /* ===== Reveal on scroll ===== */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* ===== Simulación en vivo (demo de lectura de sensores) ===== */
+  const tEl = document.getElementById('liveTemp');
+  const hEl = document.getElementById('liveHum');
+  const fEl = document.getElementById('liveFan');
+  function tick(){
+    // Simula valores del terrario para que se "sienta" vivo en la expo
+    const temp = 22 + Math.round(Math.random()*8);   // 22–30°C
+    const hum  = 40 + Math.round(Math.random()*30);  // 40–70%
+    tEl.textContent = temp + '°C';
+    hEl.textContent = hum + '%';
+    fEl.textContent = temp >= 28 ? 'ON' : 'OFF';
+    fEl.style.color = temp >= 28 ? 'var(--amber)' : 'var(--cyan)';
+  }
+  tick();
+  setInterval(tick, 2200);
+</script>
+</body>
+</html>
