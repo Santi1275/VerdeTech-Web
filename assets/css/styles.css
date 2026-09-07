@@ -74,11 +74,11 @@
     font-size:.92rem;font-weight:500;transition:.2s;
   }
   .nav-links a:hover{color:var(--text);background:rgba(255,255,255,.04)}
-  .nav-cta{
+  .nav-links a.nav-cta{
     padding:9px 16px;border-radius:11px;font-weight:600;font-size:.92rem;
     background:var(--green);color:#04130c;transition:.2s;
   }
-  .nav-cta:hover{filter:brightness(1.08);transform:translateY(-1px)}
+  .nav-links a.nav-cta:hover{filter:brightness(1.08);transform:translateY(-1px)}
   .burger{display:none;background:none;border:1px solid var(--line);color:var(--text);width:42px;height:42px;border-radius:11px;cursor:pointer;font-size:1.2rem}
 
   /* ===== Hero ===== */
