@@ -111,6 +111,7 @@
   .btn-ghost{background:transparent;border-color:var(--line-strong);color:var(--text)}
   .btn-ghost:hover{background:rgba(255,255,255,.05);border-color:var(--green)}
   .hero-stats{display:flex;gap:28px;margin-top:38px;flex-wrap:wrap}
+  .stat{text-align:center}
   .stat .num{font-family:'Sora';font-size:1.7rem;font-weight:700;color:var(--leaf)}
   .stat .lbl{font-size:.82rem;color:var(--muted-2);text-transform:uppercase;letter-spacing:.08em}
 
