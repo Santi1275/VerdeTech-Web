@@ -53,11 +53,99 @@
       </div>
     </div>
     <div class="reveal">
-      <div class="terrarium" aria-label="Terrario inteligente VerdeTech">
+      <div class="terrarium" id="interactiveTerrarium" role="button" tabindex="0" aria-label="Terrario inteligente VerdeTech. Activá para ver crecer la planta" aria-pressed="false">
         <div class="glass">
-          <div class="soil"></div>
-          <div class="plant"></div>
+          <svg class="plant-illustration" viewBox="0 0 400 400" role="img" aria-labelledby="plantTitle plantDesc">
+            <title id="plantTitle">Planta joven de VerdeTech</title>
+            <desc id="plantDesc">Una plántula en tierra que crece hasta convertirse en una planta compacta y frondosa.</desc>
+            <defs>
+              <linearGradient id="potFront" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#9a6845"/>
+                <stop offset="1" stop-color="#5b3827"/>
+              </linearGradient>
+              <linearGradient id="soilFill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#60452f"/>
+                <stop offset="1" stop-color="#2c1c14"/>
+              </linearGradient>
+              <linearGradient id="leafLight" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#a7f3b8"/>
+                <stop offset="1" stop-color="#16a46d"/>
+              </linearGradient>
+              <linearGradient id="leafDark" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#42d993"/>
+                <stop offset="1" stop-color="#08734f"/>
+              </linearGradient>
+            </defs>
+
+            <ellipse class="pot-shadow" cx="200" cy="345" rx="103" ry="17"/>
+            <path class="pot-body" d="M119 280h162l-15 61c-2 10-11 17-22 17h-88c-11 0-20-7-22-17z" fill="url(#potFront)"/>
+            <path class="pot-highlight" d="M139 293h15l8 48h-9c-4 0-8-3-9-8z"/>
+            <rect class="pot-rim" x="108" y="266" width="184" height="28" rx="10"/>
+            <ellipse class="soil-bed" cx="200" cy="272" rx="82" ry="16" fill="url(#soilFill)"/>
+            <g class="soil-details">
+              <circle cx="146" cy="269" r="3"/><circle cx="170" cy="277" r="2.5"/><circle cx="207" cy="269" r="3.5"/>
+              <circle cx="235" cy="277" r="2"/><circle cx="260" cy="269" r="3"/>
+              <path d="M180 265l7-5 6 5M225 267l6-5 5 5"/>
+            </g>
+
+            <g class="plant-growth">
+              <path class="stem stem-main" d="M200 270C199 245 202 221 200 193C199 171 203 147 207 124"/>
+              <path class="stem stem-left" d="M201 231C184 216 171 199 163 180"/>
+              <path class="stem stem-right" d="M201 213C219 197 231 180 237 161"/>
+              <path class="stem stem-far-left" d="M200 249C176 246 154 235 138 220"/>
+              <path class="stem stem-far-right" d="M201 245C226 239 246 227 261 211"/>
+
+              <g class="leaf leaf-baby leaf-left">
+                <path d="M198 251C175 253 158 241 157 222C178 219 195 230 198 251Z" fill="url(#leafDark)"/>
+                <path class="leaf-vein" d="M161 226c13 7 24 14 35 23"/>
+              </g>
+              <g class="leaf leaf-baby leaf-right">
+                <path d="M202 247C226 247 240 233 239 215C218 214 203 226 202 247Z" fill="url(#leafLight)"/>
+                <path class="leaf-vein" d="M235 219c-12 8-22 16-31 26"/>
+              </g>
+
+              <g class="leaf stage-two leaf-mid-left">
+                <path d="M190 224C158 222 137 201 142 176C171 177 192 194 190 224Z" fill="url(#leafLight)"/>
+                <path class="leaf-vein" d="M147 182c15 10 28 23 40 38"/>
+              </g>
+              <g class="leaf stage-two leaf-mid-right">
+                <path d="M208 208C241 207 261 184 254 158C225 161 205 180 208 208Z" fill="url(#leafDark)"/>
+                <path class="leaf-vein" d="M249 165c-14 11-27 24-39 40"/>
+              </g>
+              <g class="leaf stage-two leaf-top">
+                <path d="M204 185C181 166 181 139 204 122C225 142 224 168 204 185Z" fill="url(#leafLight)"/>
+                <path class="leaf-vein" d="M204 128v52"/>
+              </g>
+
+              <g class="leaf stage-three leaf-wide-left">
+                <path d="M174 249C140 257 110 241 103 214C134 204 164 218 174 249Z" fill="url(#leafDark)"/>
+                <path class="leaf-vein" d="M109 217c23 7 43 17 61 29"/>
+              </g>
+              <g class="leaf stage-three leaf-wide-right">
+                <path d="M225 242C259 247 287 228 290 201C258 195 231 212 225 242Z" fill="url(#leafLight)"/>
+                <path class="leaf-vein" d="M284 205c-21 8-40 20-56 34"/>
+              </g>
+              <g class="leaf stage-three leaf-crown-left">
+                <path d="M197 198C169 187 158 159 171 136C197 148 209 172 197 198Z" fill="url(#leafDark)"/>
+                <path class="leaf-vein" d="M174 142c8 17 15 34 21 51"/>
+              </g>
+              <g class="leaf stage-three leaf-crown-right">
+                <path d="M211 184C237 169 244 141 227 120C204 135 197 161 211 184Z" fill="url(#leafLight)"/>
+                <path class="leaf-vein" d="M225 127c-6 18-10 35-13 52"/>
+              </g>
+              <g class="leaf stage-three leaf-tip">
+                <path d="M207 151C188 126 194 96 220 82C237 108 231 136 207 151Z" fill="url(#leafDark)"/>
+                <path class="leaf-vein" d="M218 89c-4 19-7 38-10 57"/>
+              </g>
+            </g>
+          </svg>
         </div>
+        <span class="grow-hint" id="growHint" aria-label="Pasá el cursor o tocá para verla crecer 🌱">
+          <span id="growHintText">Pasá el cursor o tocá para verla crecer</span>
+          <svg class="sprout-icon" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M10 17v-7M10 11C6 11 3.5 8.8 3 5c4-.2 6.7 1.8 7 6ZM10 9c3.8 0 6.2-2 6.7-5.5C13 3.3 10.5 5.2 10 9Z"/>
+          </svg>
+        </span>
         <span class="chip temp">🌡️ <span class="v" id="liveTemp">24°C</span></span>
         <span class="chip hum">💧 <span class="v" id="liveHum">58%</span></span>
         <span class="chip fan">🌀 Cooler: <span class="v" id="liveFan">OFF</span></span>

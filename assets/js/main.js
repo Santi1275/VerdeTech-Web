@@ -10,6 +10,30 @@
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
+  /* ===== Crecimiento interactivo del terrario ===== */
+  const terrarium = document.getElementById('interactiveTerrarium');
+  const growHintText = document.getElementById('growHintText');
+  const canHover = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+  function togglePlantGrowth(){
+    const isGrown = terrarium.classList.toggle('is-grown');
+    terrarium.setAttribute('aria-pressed', String(isGrown));
+    growHintText.textContent = isGrown
+      ? 'Tocá otra vez para verla empezar de nuevo'
+      : 'Pasá el cursor o tocá para verla crecer';
+  }
+
+  terrarium.addEventListener('click', () => {
+    if (!canHover.matches) togglePlantGrowth();
+  });
+
+  terrarium.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      togglePlantGrowth();
+    }
+  });
+
   /* ===== Simulación en vivo (demo de lectura de sensores) ===== */
   const tEl = document.getElementById('liveTemp');
   const hEl = document.getElementById('liveHum');

@@ -124,27 +124,41 @@
       linear-gradient(180deg,#102018,#0a1410);
     border:1px solid var(--line-strong);
     box-shadow:var(--shadow);
+    cursor:pointer;outline:none;
   }
+  .terrarium:focus-visible{box-shadow:var(--shadow),0 0 0 3px var(--green)}
   .terrarium .glass{
     position:absolute;inset:14px;border-radius:18px;
     border:1px solid rgba(134,239,172,.22);
     background:linear-gradient(180deg,rgba(16,185,129,.06),rgba(94,234,212,.03));
     overflow:hidden;
   }
-  .terrarium .plant{
-    position:absolute;left:50%;bottom:14%;transform:translateX(-50%);
-    width:46%;height:54%;
-    background:
-      radial-gradient(60% 80% at 50% 100%, var(--green-deep), transparent 70%),
-      radial-gradient(80% 60% at 50% 40%, var(--green), transparent 70%);
-    border-radius:50% 50% 46% 46% / 60% 60% 40% 40%;
-    filter:drop-shadow(0 0 18px rgba(52,211,153,.45));
-    animation:sway 5s ease-in-out infinite;
+  .plant-illustration{position:absolute;inset:4%;width:92%;height:92%;overflow:visible}
+  .pot-shadow{fill:rgba(0,0,0,.28)}
+  .pot-body{stroke:#bd865e;stroke-width:2}
+  .pot-highlight{fill:rgba(255,255,255,.1)}
+  .pot-rim{fill:#8a593c;stroke:#c18a62;stroke-width:2}
+  .soil-bed{stroke:#886144;stroke-width:2}
+  .soil-details{fill:#b08a63;stroke:#342016;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .plant-growth{transform-box:fill-box;transform-origin:center bottom}
+  .stem{fill:none;stroke:#2fb879;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:180;stroke-dashoffset:180;transition:stroke-dashoffset .7s cubic-bezier(.22,.75,.3,1)}
+  .stem-main{stroke-dasharray:160;stroke-dashoffset:112}
+  .leaf{transform-box:fill-box;transform-origin:center bottom;filter:drop-shadow(0 5px 4px rgba(0,0,0,.2));transition:opacity .5s ease,transform .65s cubic-bezier(.2,.8,.25,1.15)}
+  .leaf path:first-child{stroke:#b2f5c6;stroke-width:1.5;stroke-linejoin:round}
+  .leaf-vein{fill:none;stroke:rgba(225,255,233,.5);stroke-width:1.6;stroke-linecap:round}
+  .leaf-baby{opacity:1;transform:scale(.62)}
+  .stage-two,.stage-three{opacity:0;transform:scale(.12) rotate(-8deg)}
+  .grow-hint{
+    position:absolute;left:50%;bottom:5%;z-index:3;transform:translateX(-50%);
+    width:max-content;max-width:82%;padding:6px 10px;border-radius:8px;
+    background:rgba(10,20,16,.76);border:1px solid var(--line);color:var(--muted);
+    display:flex;align-items:center;justify-content:center;gap:5px;
+    font-size:.68rem;font-weight:600;text-align:center;pointer-events:none;
+    transition:opacity .3s ease,color .3s ease;
   }
-  @keyframes sway{0%,100%{transform:translateX(-50%) rotate(-2deg)}50%{transform:translateX(-50%) rotate(2deg)}}
-  .terrarium .soil{position:absolute;left:8%;right:8%;bottom:12%;height:6%;background:linear-gradient(#3a2a1c,#251a10);border-radius:6px}
+  .sprout-icon{width:13px;height:13px;flex:0 0 auto;fill:none;stroke:var(--green);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
   .terrarium .chip{
-    position:absolute;font-size:.72rem;font-weight:600;padding:5px 9px;border-radius:8px;
+    position:absolute;z-index:4;font-size:.72rem;font-weight:600;padding:5px 9px;border-radius:8px;
     background:rgba(10,20,16,.7);border:1px solid var(--line-strong);color:var(--leaf);
     backdrop-filter:blur(4px);font-family:'Sora';
   }
@@ -152,6 +166,21 @@
   .chip.hum{top:12%;right:10%}
   .chip.fan{bottom:24%;right:8%}
   .chip .v{color:var(--cyan)}
+  @media (hover:hover) and (pointer:fine){
+    .terrarium:hover .stem,.terrarium:focus-visible .stem{stroke-dashoffset:0}
+    .terrarium:hover .leaf-baby,.terrarium:focus-visible .leaf-baby{transform:scale(1)}
+    .terrarium:hover .stage-two,.terrarium:focus-visible .stage-two{opacity:1;transform:scale(1) rotate(0);transition-delay:.35s}
+    .terrarium:hover .stage-three,.terrarium:focus-visible .stage-three{opacity:1;transform:scale(1) rotate(0);transition-delay:.9s}
+    .terrarium:hover .plant-growth,.terrarium:focus-visible .plant-growth{animation:plant-breathe 3.2s 1.55s ease-in-out infinite}
+    .terrarium:hover .grow-hint,.terrarium:focus-visible .grow-hint{opacity:.42;color:var(--leaf)}
+  }
+  .terrarium.is-grown .stem{stroke-dashoffset:0}
+  .terrarium.is-grown .leaf-baby{transform:scale(1)}
+  .terrarium.is-grown .stage-two{opacity:1;transform:scale(1) rotate(0);transition-delay:.35s}
+  .terrarium.is-grown .stage-three{opacity:1;transform:scale(1) rotate(0);transition-delay:.9s}
+  .terrarium.is-grown .plant-growth{animation:plant-breathe 3.2s 1.55s ease-in-out infinite}
+  .terrarium.is-grown .grow-hint{opacity:.42;color:var(--leaf)}
+  @keyframes plant-breathe{0%,100%{transform:rotate(-.7deg)}50%{transform:rotate(.7deg)}}
 
   /* ===== Secciones ===== */
   section{padding:70px 0;position:relative}
@@ -322,6 +351,11 @@
     .grid-3{grid-template-columns:1fr}
     .flow{grid-template-columns:1fr}
     .hero{padding:110px 0 40px}
+    .grow-hint{font-size:.65rem;bottom:4%}
     .value-band,.cta-band{padding:28px}
     section{padding:50px 0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .reveal,.stem,.leaf,.plant-growth{animation:none!important;transition-duration:.01ms!important}
   }
