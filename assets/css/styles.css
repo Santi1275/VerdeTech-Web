@@ -152,9 +152,11 @@
     position:absolute;left:50%;bottom:5%;z-index:3;transform:translateX(-50%);
     width:max-content;max-width:82%;padding:6px 10px;border-radius:8px;
     background:rgba(10,20,16,.76);border:1px solid var(--line);color:var(--muted);
+    display:flex;align-items:center;justify-content:center;gap:5px;
     font-size:.68rem;font-weight:600;text-align:center;pointer-events:none;
     transition:opacity .3s ease,color .3s ease;
   }
+  .sprout-icon{width:13px;height:13px;flex:0 0 auto;fill:none;stroke:var(--green);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
   .terrarium .chip{
     position:absolute;z-index:4;font-size:.72rem;font-weight:600;padding:5px 9px;border-radius:8px;
     background:rgba(10,20,16,.7);border:1px solid var(--line-strong);color:var(--leaf);

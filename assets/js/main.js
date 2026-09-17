@@ -12,15 +12,15 @@
 
   /* ===== Crecimiento interactivo del terrario ===== */
   const terrarium = document.getElementById('interactiveTerrarium');
-  const growHint = document.getElementById('growHint');
+  const growHintText = document.getElementById('growHintText');
   const canHover = window.matchMedia('(hover: hover) and (pointer: fine)');
 
   function togglePlantGrowth(){
     const isGrown = terrarium.classList.toggle('is-grown');
     terrarium.setAttribute('aria-pressed', String(isGrown));
-    growHint.textContent = isGrown
-      ? 'Tocá otra vez para verla empezar de nuevo 🌱'
-      : 'Pasá el cursor o tocá para verla crecer 🌱';
+    growHintText.textContent = isGrown
+      ? 'Tocá otra vez para verla empezar de nuevo'
+      : 'Pasá el cursor o tocá para verla crecer';
   }
 
   terrarium.addEventListener('click', () => {
