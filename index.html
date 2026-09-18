@@ -53,11 +53,11 @@
       </div>
     </div>
     <div class="reveal">
-      <div class="terrarium" id="interactiveTerrarium" role="button" tabindex="0" aria-label="Terrario inteligente VerdeTech. Activá para ver crecer la planta" aria-pressed="false">
+      <div class="terrarium" id="interactiveTerrarium" role="button" tabindex="0" aria-label="Terrario inteligente VerdeTech. Activá para ver germinar y crecer la semilla" aria-pressed="false">
         <div class="glass">
           <svg class="plant-illustration" viewBox="0 0 400 400" role="img" aria-labelledby="plantTitle plantDesc">
-            <title id="plantTitle">Planta joven de VerdeTech</title>
-            <desc id="plantDesc">Una plántula en tierra que crece hasta convertirse en una planta compacta y frondosa.</desc>
+            <title id="plantTitle">Semilla interactiva de VerdeTech</title>
+            <desc id="plantDesc">Una semilla en la tierra que germina y crece hasta convertirse en una planta compacta y frondosa.</desc>
             <defs>
               <linearGradient id="potFront" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0" stop-color="#9a6845"/>
@@ -86,6 +86,13 @@
               <circle cx="146" cy="269" r="3"/><circle cx="170" cy="277" r="2.5"/><circle cx="207" cy="269" r="3.5"/>
               <circle cx="235" cy="277" r="2"/><circle cx="260" cy="269" r="3"/>
               <path d="M180 265l7-5 6 5M225 267l6-5 5 5"/>
+            </g>
+
+            <g class="seed" aria-hidden="true">
+              <path class="seed-half seed-half-left" d="M200 272C185 270 180 260 186 250C191 242 198 244 200 252Z"/>
+              <path class="seed-half seed-half-right" d="M200 272C215 270 220 260 214 250C209 242 202 244 200 252Z"/>
+              <path class="seed-seam" d="M200 251v19"/>
+              <path class="seed-root" d="M200 269c0 5 2 8 6 11"/>
             </g>
 
             <g class="plant-growth">
@@ -140,8 +147,8 @@
             </g>
           </svg>
         </div>
-        <span class="grow-hint" id="growHint" aria-label="Pasá el cursor o tocá para verla crecer 🌱">
-          <span id="growHintText">Pasá el cursor o tocá para verla crecer</span>
+        <span class="grow-hint" id="growHint" aria-label="Pasá el cursor o tocá para ver germinar y crecer la semilla 🌱">
+          <span id="growHintText">Pasá el cursor o tocá para ver germinar y crecer la semilla</span>
           <svg class="sprout-icon" viewBox="0 0 20 20" aria-hidden="true">
             <path d="M10 17v-7M10 11C6 11 3.5 8.8 3 5c4-.2 6.7 1.8 7 6ZM10 9c3.8 0 6.2-2 6.7-5.5C13 3.3 10.5 5.2 10 9Z"/>
           </svg>
