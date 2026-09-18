@@ -19,8 +19,8 @@
     const isGrown = terrarium.classList.toggle('is-grown');
     terrarium.setAttribute('aria-pressed', String(isGrown));
     growHintText.textContent = isGrown
-      ? 'Tocá otra vez para verla empezar de nuevo'
-      : 'Pasá el cursor o tocá para verla crecer';
+      ? 'Tocá otra vez para volver a la semilla'
+      : 'Pasá el cursor o tocá para ver germinar y crecer la semilla';
   }
 
   terrarium.addEventListener('click', () => {

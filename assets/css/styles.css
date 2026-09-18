@@ -140,13 +140,19 @@
   .pot-rim{fill:#8a593c;stroke:#c18a62;stroke-width:2}
   .soil-bed{stroke:#886144;stroke-width:2}
   .soil-details{fill:#b08a63;stroke:#342016;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .seed{transform-box:fill-box;transform-origin:center bottom;filter:drop-shadow(0 3px 2px rgba(0,0,0,.3));transition:opacity .3s ease .18s}
+  .seed-half{fill:#c99a58;stroke:#f1c879;stroke-width:2;stroke-linejoin:round;transform-box:fill-box;transition:transform .48s cubic-bezier(.22,.75,.3,1)}
+  .seed-half-left{transform-origin:right bottom}
+  .seed-half-right{transform-origin:left bottom}
+  .seed-seam,.seed-root{fill:none;stroke:#6f4728;stroke-width:1.8;stroke-linecap:round;transition:opacity .2s ease}
+  .seed-root{stroke:#e7d29b;stroke-dasharray:18;stroke-dashoffset:18;transition:stroke-dashoffset .35s ease .16s}
   .plant-growth{transform-box:fill-box;transform-origin:center bottom}
-  .stem{fill:none;stroke:#2fb879;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:180;stroke-dashoffset:180;transition:stroke-dashoffset .7s cubic-bezier(.22,.75,.3,1)}
-  .stem-main{stroke-dasharray:160;stroke-dashoffset:112}
+  .stem{fill:none;stroke:#2fb879;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:180;stroke-dashoffset:180;transition:stroke-dashoffset .7s cubic-bezier(.22,.75,.3,1) .35s}
+  .stem-main{stroke-dasharray:160;stroke-dashoffset:160}
   .leaf{transform-box:fill-box;transform-origin:center bottom;filter:drop-shadow(0 5px 4px rgba(0,0,0,.2));transition:opacity .5s ease,transform .65s cubic-bezier(.2,.8,.25,1.15)}
   .leaf path:first-child{stroke:#b2f5c6;stroke-width:1.5;stroke-linejoin:round}
   .leaf-vein{fill:none;stroke:rgba(225,255,233,.5);stroke-width:1.6;stroke-linecap:round}
-  .leaf-baby{opacity:1;transform:scale(.62)}
+  .leaf-baby{opacity:0;transform:scale(.12)}
   .stage-two,.stage-three{opacity:0;transform:scale(.12) rotate(-8deg)}
   .grow-hint{
     position:absolute;left:50%;bottom:5%;z-index:3;transform:translateX(-50%);
@@ -167,17 +173,27 @@
   .chip.fan{bottom:24%;right:8%}
   .chip .v{color:var(--cyan)}
   @media (hover:hover) and (pointer:fine){
+    .terrarium:hover .seed,.terrarium:focus-visible .seed{opacity:0;transition-delay:.42s}
+    .terrarium:hover .seed-half-left,.terrarium:focus-visible .seed-half-left{transform:translate(-7px,-2px) rotate(-32deg)}
+    .terrarium:hover .seed-half-right,.terrarium:focus-visible .seed-half-right{transform:translate(7px,-2px) rotate(32deg)}
+    .terrarium:hover .seed-seam,.terrarium:focus-visible .seed-seam{opacity:0}
+    .terrarium:hover .seed-root,.terrarium:focus-visible .seed-root{stroke-dashoffset:0}
     .terrarium:hover .stem,.terrarium:focus-visible .stem{stroke-dashoffset:0}
-    .terrarium:hover .leaf-baby,.terrarium:focus-visible .leaf-baby{transform:scale(1)}
-    .terrarium:hover .stage-two,.terrarium:focus-visible .stage-two{opacity:1;transform:scale(1) rotate(0);transition-delay:.35s}
-    .terrarium:hover .stage-three,.terrarium:focus-visible .stage-three{opacity:1;transform:scale(1) rotate(0);transition-delay:.9s}
+    .terrarium:hover .leaf-baby,.terrarium:focus-visible .leaf-baby{opacity:1;transform:scale(1);transition-delay:.72s}
+    .terrarium:hover .stage-two,.terrarium:focus-visible .stage-two{opacity:1;transform:scale(1) rotate(0);transition-delay:1.05s}
+    .terrarium:hover .stage-three,.terrarium:focus-visible .stage-three{opacity:1;transform:scale(1) rotate(0);transition-delay:1.55s}
     .terrarium:hover .plant-growth,.terrarium:focus-visible .plant-growth{animation:plant-breathe 3.2s 1.55s ease-in-out infinite}
     .terrarium:hover .grow-hint,.terrarium:focus-visible .grow-hint{opacity:.42;color:var(--leaf)}
   }
+  .terrarium.is-grown .seed{opacity:0;transition-delay:.42s}
+  .terrarium.is-grown .seed-half-left{transform:translate(-7px,-2px) rotate(-32deg)}
+  .terrarium.is-grown .seed-half-right{transform:translate(7px,-2px) rotate(32deg)}
+  .terrarium.is-grown .seed-seam{opacity:0}
+  .terrarium.is-grown .seed-root{stroke-dashoffset:0}
   .terrarium.is-grown .stem{stroke-dashoffset:0}
-  .terrarium.is-grown .leaf-baby{transform:scale(1)}
-  .terrarium.is-grown .stage-two{opacity:1;transform:scale(1) rotate(0);transition-delay:.35s}
-  .terrarium.is-grown .stage-three{opacity:1;transform:scale(1) rotate(0);transition-delay:.9s}
+  .terrarium.is-grown .leaf-baby{opacity:1;transform:scale(1);transition-delay:.72s}
+  .terrarium.is-grown .stage-two{opacity:1;transform:scale(1) rotate(0);transition-delay:1.05s}
+  .terrarium.is-grown .stage-three{opacity:1;transform:scale(1) rotate(0);transition-delay:1.55s}
   .terrarium.is-grown .plant-growth{animation:plant-breathe 3.2s 1.55s ease-in-out infinite}
   .terrarium.is-grown .grow-hint{opacity:.42;color:var(--leaf)}
   @keyframes plant-breathe{0%,100%{transform:rotate(-.7deg)}50%{transform:rotate(.7deg)}}
