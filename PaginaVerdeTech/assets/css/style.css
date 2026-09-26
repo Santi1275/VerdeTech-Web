@@ -63,7 +63,7 @@
   }
   .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
   .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-family:'Sora';font-size:1.05rem}
-  .brand img{width:auto;height:42px;object-fit:contain}
+  .brand img{width:auto;height:56px;object-fit:contain}
   .brand .mark{
     width:34px;height:34px;border-radius:10px;
     background:linear-gradient(135deg,var(--green),var(--green-deep));
