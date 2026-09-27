@@ -224,7 +224,7 @@
   .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 
   /* Problema / Solución dual */
-  .duo{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch;position:relative}
   .duo .card{display:flex;flex-direction:column}
   .duo .bad .ico{background:rgba(251,191,36,.12);border-color:rgba(251,191,36,.35)}
   .duo .bad h3{color:var(--amber)}
