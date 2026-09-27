@@ -371,13 +371,13 @@
     .grid-3{grid-template-columns:1fr}
     .flow{grid-template-columns:1fr}
     .hero{padding:110px 0 40px}
-    .grow-hint{font-size:.65rem;bottom:4%}
+    .grow-hint{font-size:calc(.65rem + 1px);bottom:4%}
     .value-band,.cta-band{padding:28px}
     section{padding:50px 0}
     .hero-stats{flex-wrap:nowrap;gap:12px;justify-content:space-between;margin-top:30px}
     .stat{flex:1 1 0;min-width:0}
     .stat .num{font-size:1.35rem;white-space:nowrap}
-    .stat .lbl{font-size:.68rem;letter-spacing:.04em}
+    .stat .lbl{font-size:calc(.68rem + 1px);letter-spacing:.04em}
 
     /* Centrado del contenido en mobile */
     .hero-grid,.section-head,.card,.flow-step,.status-card,.member,.future-item,.foot-todo,.value-band{text-align:center}
@@ -392,6 +392,29 @@
     .member{justify-content:center}
     .future-item{flex-direction:column;align-items:center;gap:10px}
     .foot-inner{justify-content:center;text-align:center}
+
+    /* +1px en todo texto que no sea título (legibilidad mobile) */
+    .nav-links a,.nav-links a.nav-cta{font-size:calc(.92rem + 1px)}
+    .pill{font-size:calc(.8rem + 1px)}
+    .hero .lead{font-size:calc(1.18rem + 1px)}
+    .btn{font-size:calc(1rem + 1px)}
+    .eyebrow{font-size:calc(.85rem + 1px)}
+    .section-head p{font-size:calc(1.05rem + 1px)}
+    .card p{font-size:calc(.98rem + 1px)}
+    .value-list li{font-size:calc(1rem + 1px)}
+    .flow-step .step-n{font-size:calc(.78rem + 1px)}
+    .flow-step p{font-size:calc(.92rem + 1px)}
+    .placeholder .ph-tag{font-size:calc(.78rem + 1px)}
+    .placeholder .ph-desc{font-size:calc(.92rem + 1px)}
+    .status-card .tag{font-size:calc(.72rem + 1px)}
+    .status-card ul{font-size:calc(.94rem + 1px)}
+    .member p{font-size:calc(.92rem + 1px)}
+    .future-item .badge{font-size:calc(.8rem + 1px)}
+    .future-item > div{font-size:calc(1rem + 1px)}
+    .cta-band p{font-size:calc(1.1rem + 1px)}
+    .terrarium .chip{font-size:calc(.72rem + 1px)}
+    .foot-inner{font-size:calc(.9rem + 1px)}
+    .foot-todo{font-size:calc(.9rem + 1px)}
   }
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
