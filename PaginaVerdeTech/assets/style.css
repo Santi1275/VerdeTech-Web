@@ -376,6 +376,19 @@
     .stat{flex:1 1 0;min-width:0}
     .stat .num{font-size:1.35rem;white-space:nowrap}
     .stat .lbl{font-size:.68rem;letter-spacing:.04em}
+
+    /* Centrado del contenido en mobile */
+    .hero-grid,.section-head,.card,.flow-step,.status-card,.member,.future-item,.foot-todo,.value-band{text-align:center}
+    .section-head{margin-left:auto;margin-right:auto}
+    .hero .lead{margin-left:auto;margin-right:auto}
+    .hero-actions{justify-content:center}
+    .hero-stats{justify-content:center}
+    .value-list{max-width:fit-content;margin-inline:auto}
+    .status-card ul{max-width:fit-content;margin-inline:auto}
+    .status-card .tag{position:static;margin-bottom:6px}
+    .member{justify-content:center}
+    .future-item{flex-direction:column;align-items:center;gap:10px}
+    .foot-inner{justify-content:center;text-align:center}
   }
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
