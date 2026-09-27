@@ -371,13 +371,13 @@
     .grid-3{grid-template-columns:1fr}
     .flow{grid-template-columns:1fr}
     .hero{padding:110px 0 40px}
-    .grow-hint{font-size:.65rem;bottom:4%}
+    .grow-hint{font-size:calc(.65rem + 1px);bottom:4%}
     .value-band,.cta-band{padding:28px}
     section{padding:50px 0}
     .hero-stats{flex-wrap:nowrap;gap:12px;justify-content:space-between;margin-top:30px}
     .stat{flex:1 1 0;min-width:0}
     .stat .num{font-size:1.35rem;white-space:nowrap}
-    .stat .lbl{font-size:.68rem;letter-spacing:.04em}
+    .stat .lbl{font-size:calc(.68rem + 1px);letter-spacing:.04em}
 
     /* Centrado del contenido en mobile */
     .hero-grid,.section-head,.card,.flow-step,.status-card,.member,.future-item,.foot-todo,.value-band{text-align:center}
