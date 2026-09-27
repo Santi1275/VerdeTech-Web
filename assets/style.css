@@ -318,7 +318,7 @@
   /* Futuro */
   .future-list{display:flex;flex-direction:column;gap:14px}
   .future-item{
-    display:flex;gap:16px;align-items:flex-start;
+    display:flex;gap:16px;align-items:center;
     background:rgba(19,36,28,.5);border:1px solid var(--line);border-radius:14px;padding:20px;
   }
   .future-item .badge{
