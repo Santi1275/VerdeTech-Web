@@ -372,6 +372,10 @@
     .grow-hint{font-size:.65rem;bottom:4%}
     .value-band,.cta-band{padding:28px}
     section{padding:50px 0}
+    .hero-stats{flex-wrap:nowrap;gap:12px;justify-content:space-between;margin-top:30px}
+    .stat{flex:1 1 0;min-width:0}
+    .stat .num{font-size:1.35rem;white-space:nowrap}
+    .stat .lbl{font-size:.68rem;letter-spacing:.04em}
   }
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
