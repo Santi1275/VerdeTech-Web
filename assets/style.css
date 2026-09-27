@@ -288,7 +288,7 @@
   .status-card ul{list-style:none;margin:14px 0 0;display:flex;flex-direction:column;gap:8px;font-size:.94rem;color:var(--muted)}
   .status-card li::before{content:"✓ ";color:var(--green);font-weight:800}
   .status-card .tag{
-    position:absolute;top:14px;right:14px;font-size:.72rem;font-weight:700;
+    position:static;display:block;width:fit-content;margin:0 auto 6px;font-size:.72rem;font-weight:700;
     padding:4px 9px;border-radius:999px;font-family:'Sora';letter-spacing:.06em;
   }
   .tag.done{background:rgba(52,211,153,.14);color:var(--green);border:1px solid var(--line-strong)}
