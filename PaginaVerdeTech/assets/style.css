@@ -383,10 +383,8 @@
     .hero .lead{margin-left:auto;margin-right:auto}
     .hero-actions{justify-content:center}
     .hero-stats{justify-content:center}
-    .value-list{align-items:center}
-    .value-list li{text-align:left}
-    .status-card ul{align-items:center}
-    .status-card li{text-align:left}
+    .value-list{max-width:fit-content;margin-inline:auto}
+    .status-card ul{max-width:fit-content;margin-inline:auto}
     .status-card .tag{position:static;margin-bottom:6px}
     .member{justify-content:center}
     .future-item{flex-direction:column;align-items:center;gap:10px}
