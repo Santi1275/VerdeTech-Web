@@ -285,7 +285,7 @@
     background:rgba(19,36,28,.55);transition:.2s;position:relative;overflow:hidden;
   }
   .status-card:hover{border-color:var(--line-strong);transform:translateY(-3px)}
-  .status-card ul{list-style:none;margin:14px 0 0;display:flex;flex-direction:column;gap:8px;font-size:.94rem;color:var(--muted)}
+  .status-card ul{list-style:none;margin:14px 0 0;display:flex;flex-direction:column;gap:8px;font-size:.94rem;color:var(--muted);max-width:fit-content;margin-inline:auto}
   .status-card li::before{content:"✓ ";color:var(--green);font-weight:800}
   .status-card .tag{
     position:static;display:block;width:fit-content;margin:0 auto 6px;font-size:.72rem;font-weight:700;
