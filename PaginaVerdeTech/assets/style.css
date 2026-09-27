@@ -379,6 +379,8 @@
 
     /* Centrado del contenido en mobile */
     .hero-grid,.section-head,.card,.flow-step,.status-card,.member,.future-item,.foot-todo,.value-band{text-align:center}
+    .card .ico{margin-inline:auto}
+    .status-card .phase{justify-content:center}
     .section-head{margin-left:auto;margin-right:auto}
     .hero .lead{margin-left:auto;margin-right:auto}
     .hero-actions{justify-content:center}
