@@ -389,8 +389,7 @@
     .status-card li{text-align:left}
     .status-card .tag{position:static;margin-bottom:6px}
     .member{justify-content:center}
-    .future-item{justify-content:center}
-    .future-item .future-txt{flex:1 1 auto;text-align:center}
+    .future-item{flex-direction:column;align-items:center;gap:10px}
     .foot-inner{justify-content:center;text-align:center}
   }
   @media (prefers-reduced-motion:reduce){
