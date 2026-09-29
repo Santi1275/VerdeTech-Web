@@ -410,6 +410,7 @@
     .value-list li{font-size:calc(1rem + 1px)}
     .flow-step .step-n{font-size:calc(.78rem + 1px)}
     .flow-step p{font-size:calc(.92rem + 1px)}
+    .placeholder.photo{aspect-ratio:4/3}
     .placeholder .ph-tag{font-size:calc(.78rem + 1px)}
     .placeholder .ph-desc{font-size:calc(.92rem + 1px)}
     .status-card .tag{font-size:calc(.72rem + 1px)}
