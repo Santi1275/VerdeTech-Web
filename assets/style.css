@@ -309,6 +309,7 @@
     background:rgba(19,36,28,.55);border:1px solid var(--line);border-radius:16px;padding:22px;
   }
   .avatar{
+    position:relative;
     width:64px;height:64px;border-radius:50%;flex-shrink:0;
     background:linear-gradient(135deg,var(--green-deep),var(--green));
     display:grid;place-items:center;font-family:'Sora';font-weight:800;font-size:1.4rem;color:#04130c;
@@ -316,6 +317,7 @@
     overflow:hidden;
   }
   .avatar img{
+    position:absolute;inset:0;
     width:100%;height:100%;object-fit:cover;object-position:50% 20%;border-radius:50%;
   }
   .member h4{font-size:1.1rem}
