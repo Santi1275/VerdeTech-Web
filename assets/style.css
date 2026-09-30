@@ -280,20 +280,37 @@
   .placeholder.photo{padding:0;border:none;background:none;overflow:hidden}
   .placeholder.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
   .placeholder.photo video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#04130c;display:block}
-  .placeholder.photo.video-tile{
-    aspect-ratio:9/16;
-    width:56.25%;
-    min-height:0;
-    justify-self:center;
-  }
   .placeholder.photo.video-tile video{object-fit:cover}
   .placeholder.photo .ph-tag.overlay{
     position:absolute;left:14px;bottom:14px;
     background:rgba(4,19,12,.82);padding:6px 12px;border-radius:999px;color:#dff5ea;
   }
-  /* Solo en escritorio: el microcontrolador toma la altura de la foto del prototipo */
-  @media (min-width:901px){
-    .proto-grid .placeholder.small{aspect-ratio:auto;min-height:0}
+  /* ===== Sección Prototipo: filas centradas ===== */
+  #prototipo{--h-top:clamp(220px,32vw,400px);--h:clamp(240px,26vw,340px)}
+
+  /* Fila de arriba: dos fotos a lo ancho, misma altura */
+  .proto-grid .placeholder{aspect-ratio:auto;height:var(--h-top);width:100%;min-height:0}
+
+  /* Fila de abajo: tarjetas de igual altura, centradas */
+  .mini-row{
+    display:flex;flex-wrap:wrap;justify-content:center;align-items:center;
+    gap:24px;margin-top:24px;
+  }
+  .mini-row .placeholder{
+    flex:0 0 auto;height:var(--h);width:auto;aspect-ratio:1/1;min-height:0;
+  }
+  .mini-row .placeholder.video-tile{aspect-ratio:9/16}
+  .mini-row .placeholder.photo video{object-fit:cover}
+
+    /* El microcontrolador con tarjeta visible, para que no flote */
+  .placeholder.photo.tile-soft{
+    background:linear-gradient(180deg,rgba(19,36,28,.7),rgba(15,28,22,.5));
+    border:1px solid var(--line);
+  }
+  .placeholder.photo.tile-soft img{object-fit:contain;padding:8%}
+  
+  @media (max-width:900px){
+    .proto-grid .placeholder{height:auto;aspect-ratio:16/10}
   }
 
   /* Estado del proyecto (roadmap de desarrollo) */
