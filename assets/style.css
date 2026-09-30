@@ -322,7 +322,6 @@
     grid-template-columns:repeat(2, 1fr);
     gap:24px;
     margin-top:24px;
-    @media (max-width:900px)
   }
 
   .mini-row .placeholder{
@@ -460,7 +459,9 @@
     .hero-grid,.duo,.value-band,.proto-grid,.team-grid{grid-template-columns:1fr}
     .flow{grid-template-columns:1fr 1fr}
     .status-grid{grid-template-columns:1fr}
-    .duo .arrow{display:none}
+    .duo .arrow{display:grid}
+    .arrow-desktop{ display:none;}
+    .arrow-mobile{ display:inline;}
   }
   @media (max-width:680px){
     .nav-links{display:none}
