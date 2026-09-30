@@ -329,7 +329,20 @@
 
   
   @media (max-width:900px){
-    .proto-grid .placeholder{height:auto;aspect-ratio:16/10}
+
+    .proto-grid .placeholder{
+        height:auto;
+        aspect-ratio:16/10;
+    }
+
+    .mini-row{
+        grid-template-columns:1fr;
+    }
+
+    .mini-row .placeholder{
+        height:280px;
+    }
+
   }
 
   /* Estado del proyecto (roadmap de desarrollo) */
