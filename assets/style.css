@@ -398,7 +398,9 @@
   /* Equipo */
   .team-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
   .member{
-    display:flex;gap:18px;align-items:center;
+    display:flex;
+    gap:18px;
+    align-items:flex-start;
     background:rgba(19,36,28,.55);border:1px solid var(--line);border-radius:16px;padding:22px;
   }
   .avatar{
