@@ -356,6 +356,7 @@
     color:var(--muted);font-size:.9rem;
   }
   .foot-todo strong{color:var(--amber)}
+  .brand .footer-logo{height:36px}.
 
   /* Reveal animation */
   .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
