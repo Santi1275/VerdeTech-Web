@@ -1,4 +1,5 @@
-  /* ===== Menú mobile ===== */
+alert("JS cargado");
+/* ===== Menú mobile ===== */
   const burger = document.getElementById('burger');
   const navLinks = document.getElementById('navLinks');
   burger.addEventListener('click', () => navLinks.classList.toggle('open'));
