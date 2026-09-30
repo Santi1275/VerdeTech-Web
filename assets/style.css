@@ -242,7 +242,7 @@
 
     .duo{
         grid-template-columns:1fr;
-        gap:48px;
+        gap:20px;
     }
 
     .duo .arrow{
