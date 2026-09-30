@@ -242,7 +242,7 @@
 
     .duo{
         grid-template-columns:1fr;
-        gap:48px;
+        gap:80px;
     }
 
     .arrow-desktop{
@@ -254,12 +254,16 @@
     }
 
     .duo .arrow{
-        display:grid;
+        position:absolute;
         left:50%;
         top:50%;
         transform:translate(-50%,-50%);
+        width:56px;
+        height:56px;
+        font-size:1.5rem;
+        z-index:10;
     }
-  }
+}
 
   /* Valor */
   .value-band{
