@@ -23,10 +23,10 @@
       : 'Pasá el cursor o tocá para ver germinar y crecer la semilla';
   }
 
-  terrarium.addEventListener('click', () => {
-    alert("click");
+  terrarium.addEventListener('touchstart', () => {
+    alert("touch");
     togglePlantGrowth();
-  });
+});
 
   terrarium.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' || event.key === ' ') {
