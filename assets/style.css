@@ -261,7 +261,12 @@
   .flow-step .if{color:var(--cyan);font-weight:600}
 
   /* Prototipo */
-  .proto-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:24px}
+  .proto-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr;
+    gap:24px;
+    margin-top:32px;
+  }
   .placeholder{
     aspect-ratio:16/10;border-radius:16px;
     border:2px dashed var(--line-strong);
