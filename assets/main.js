@@ -24,7 +24,7 @@
   }
 
   terrarium.addEventListener('click', () => {
-    if (!canHover.matches) togglePlantGrowth();
+    togglePlantGrowth();
   });
 
   terrarium.addEventListener('keydown', (event) => {
