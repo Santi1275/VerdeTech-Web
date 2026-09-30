@@ -254,14 +254,15 @@
     }
 
     .duo .arrow{
-        position:absolute;
-        left:50%;
-        top:50%;
-        transform:translate(-50%,-50%);
-        width:56px;
-        height:56px;
-        font-size:1.5rem;
-        z-index:10;
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+      width:56px;
+      height:56px;
+      font-size:1.5rem;
+      z-index:10;
+      background:red !important;
     }
 }
 
