@@ -170,6 +170,10 @@
     background:rgba(10,20,16,.7);border:1px solid var(--line-strong);color:var(--leaf);
     backdrop-filter:blur(4px);font-family:'Sora';
   }
+  .terrarium .chip,
+  .grow-hint{
+    pointer-events:none;
+  }
   .chip.temp{top:12%;left:10%}
   .chip.hum{top:12%;right:10%}
   .chip.fan{bottom:24%;right:8%}
