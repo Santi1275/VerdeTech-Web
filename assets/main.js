@@ -24,6 +24,7 @@
   }
 
   terrarium.addEventListener('click', () => {
+    alert("click");
     togglePlantGrowth();
   });
 
