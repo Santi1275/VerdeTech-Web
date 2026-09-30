@@ -283,7 +283,11 @@
     position:absolute;left:14px;bottom:14px;
     background:rgba(4,19,12,.82);padding:6px 12px;border-radius:999px;color:#dff5ea;
   }
-  .placeholder.photo video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .placeholder.photo video{
+    position:absolute;inset:0;width:100%;height:100%;
+    object-fit:contain;   /* muestra el video completo; usa cover si prefieres llenar el cuadro */
+    background:#04130c;display:block;
+  }
 
   /* Estado del proyecto (roadmap de desarrollo) */
   .status-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
