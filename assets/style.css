@@ -301,10 +301,10 @@
   }
 
   .mini-row .placeholder{
+    aspect-ratio:1/1;
     width:100%;
-    height:320px;
-    min-height:0;
-  }
+    height:auto;
+}
 
   .mini-row .placeholder.video-tile{aspect-ratio:auto}
   .mini-row .placeholder.photo video{object-fit:cover}
